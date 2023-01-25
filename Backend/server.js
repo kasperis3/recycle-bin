@@ -50,8 +50,11 @@ app.get("/",
 
 app.get("/generateURL", (req, res) => {
     // generate URL function 
+
+    console.log(`Get in my belly ${req.sessionID}`);
     // append response to req.session.urls
     // insert into SQL database TABLE URL (get URL_id)
+    res.json({ url: 'a random 16 letter string'});
 });
 
 /* given the URL_ID, fetch all associated requests */
@@ -72,7 +75,7 @@ app.get("/api/:url", (req, res) => {
 });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
